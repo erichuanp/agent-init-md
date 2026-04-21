@@ -19,10 +19,21 @@
 ssh -T git@github.com
 ```
 
-- 如果 SSH 认证成功，使用 SSH，remote 为 `git@github.com:erichuanp/claude-memory.git`
-- 如果 SSH 失败，改用 HTTPS，remote 为 `https://github.com/erichuanp/claude-memory.git`
+- 如果输出包含 `Hi erichuanp!`，SSH 可用，remote 使用 `git@github.com:erichuanp/claude-memory.git`，继续 Step 2。
+- 如果 SSH 失败，**不要改用 HTTPS**，先引导用户完成 SSH 配置：
 
-记下可用的 remote URL，后续步骤使用。
+  1. 检查是否已有 SSH key：`ls ~/.ssh/id_*.pub`
+  2. 如果没有，生成一个：
+     ```bash
+     ssh-keygen -t ed25519 -C "your_email@example.com"
+     ```
+  3. 将公钥内容复制出来：
+     ```bash
+     cat ~/.ssh/id_ed25519.pub
+     ```
+  4. 让用户前往 [https://github.com/settings/keys](https://github.com/settings/keys) 添加该公钥
+  5. 添加完成后重新执行 `ssh -T git@github.com` 确认成功
+  6. 确认成功后再继续后续步骤
 
 ---
 
