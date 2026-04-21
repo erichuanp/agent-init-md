@@ -19,8 +19,8 @@
 ssh -T git@github.com
 ```
 
-- 如果 SSH 认证成功，使用 SSH，remote 为 `git@github.com:<YOUR_GITHUB_USERNAME>/claude-memory.git`
-- 如果 SSH 失败，改用 HTTPS，remote 为 `https://github.com/<YOUR_GITHUB_USERNAME>/claude-memory.git`
+- 如果 SSH 认证成功，使用 SSH，remote 为 `git@github.com:erichuanp/claude-memory.git`
+- 如果 SSH 失败，改用 HTTPS，remote 为 `https://github.com/erichuanp/claude-memory.git`
 
 记下可用的 remote URL，后续步骤使用。
 
