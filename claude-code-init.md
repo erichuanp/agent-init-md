@@ -22,18 +22,21 @@ ssh -T git@github.com
 - 如果输出包含 `Hi erichuanp!`，SSH 可用，remote 使用 `git@github.com:erichuanp/claude-memory.git`，继续 Step 2。
 - 如果 SSH 失败，**不要改用 HTTPS**，先引导用户完成 SSH 配置：
 
-  1. 检查是否已有 SSH key：`ls ~/.ssh/id_*.pub`
-  2. 如果没有，生成一个：
+  1. 检查是否已有 SSH key：
      ```bash
-     ssh-keygen -t ed25519 -C "your_email@example.com"
+     ls ~/.ssh/id_ed25519.pub
      ```
-  3. 将公钥内容复制出来：
+  2. **如果不存在**，静默生成（全部回车默认）：
+     ```bash
+     ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_ed25519
+     ```
+  3. 无论是已有还是新生成，cat 出公钥内容让用户复制：
      ```bash
      cat ~/.ssh/id_ed25519.pub
      ```
-  4. 让用户前往 [https://github.com/settings/keys](https://github.com/settings/keys) 添加该公钥
-  5. 添加完成后重新执行 `ssh -T git@github.com` 确认成功
-  6. 确认成功后再继续后续步骤
+  4. 告知用户：前往 https://github.com/settings/keys 点击 "New SSH key"，将上面的内容粘贴进去保存
+  5. 用户确认添加完成后，重新执行 `ssh -T git@github.com` 验证
+  6. 确认输出包含 `Hi erichuanp!` 后再继续后续步骤
 
 ---
 
