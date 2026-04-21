@@ -93,12 +93,6 @@ git -C ~/.openclaw/workspace remote -v
 | `week-report` | 工作内容记录与每周周报 |
 | `writing-plans` | 多步骤任务实现计划，写代码前先规划 |
 
-### Managed Skills（单独安装）
-
-| Skill | 安装方式 |
-|-------|----------|
-| `ljg-writes` | 联系 Chuan 获取安装方式，或从 workspace/skills/ljg-writes/ 恢复 |
-
 ### Bundled Skills（openclaw 内置，无需安装）
 
 | Skill | 说明 |
@@ -106,15 +100,26 @@ git -C ~/.openclaw/workspace remote -v
 | `wacli` | WhatsApp CLI 消息发送 |
 | `xurl` | X (Twitter) API v2 操作 |
 
-### 当前缺失（主机器也未安装，按需处理）
+---
 
-| Skill | 说明 |
-|-------|------|
-| `voice-call` | 语音通话（依赖 openclaw-voice-call plugin，按需安装） |
+## Step 4：安装自研 openclaw 插件
+
+clone `git@github.com:erichuanp/openclaw-cmds.git`，读取其 README，按照 README 中的安装指南完成安装。
+
+```bash
+git clone git@github.com:erichuanp/openclaw-cmds.git /tmp/openclaw-cmds
+cat /tmp/openclaw-cmds/README.md
+```
+
+读完 README 后按指南执行安装步骤，完成后清理：
+
+```bash
+rm -rf /tmp/openclaw-cmds
+```
 
 ---
 
-## Step 4：完成确认
+## Step 5：完成确认
 
 告知用户：
 1. 记忆同步方式（pull / clone+merge）及有无冲突
