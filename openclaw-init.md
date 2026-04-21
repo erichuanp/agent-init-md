@@ -114,39 +114,34 @@ openclaw skill list
 - 不要猜测安装状态
 - 汇报错误并停止 Step 3
 
-### 恢复优先级
+### ClawHub Skills（需要手动安装）
 
-#### 核心 Skills（优先恢复）
-| Skill | 说明 |
-|-------|------|
-| `review` | 结构化 review（文档/代码/方案/决策） |
-| `writing-plans` | 多步骤任务实现计划，写代码前先规划 |
-| `office-hours` | YC 式产品思维，第一性原理拆解需求 |
-| `weather` | 天气查询（无需 API key） |
-| `find-skills` | 帮助发现和安装 skills |
-| `skill-vetter` | 安装 skill 前的安全审查 |
+对照下表检查当前状态，**缺失的都安装**：
 
-#### 可选 Skills（缺失时再补）
 | Skill | 说明 |
 |-------|------|
 | `agent-browser-clawdbot` | 无头浏览器自动化 CLI（accessibility tree 快照） |
 | `crypto-price` | 加密货币价格与 K 线图（CoinGecko / Hyperliquid） |
+| `find-skills` | 帮助发现和安装 skills |
 | `gog` | GOG 游戏相关工具 |
 | `humanizer` | 去除 AI 写作痕迹 |
+| `office-hours` | YC 式产品思维，第一性原理拆解需求 |
 | `ontology` | 结构化知识图谱，跨 skill 共享状态 |
 | `proactive-agent` | 主动型 agent 模式（WAL Protocol） |
+| `review` | 结构化 review（文档/代码/方案/决策） |
 | `self-improving-agent` | 捕获错误与修正，持续改进 |
+| `skill-vetter` | 安装 skill 前的安全审查 |
 | `superdesign` | 前端设计规范与 UI 指南 |
+| `weather` | 天气查询（无需 API key） |
+| `writing-plans` | 多步骤任务实现计划，写代码前先规划 |
 
 ### 安装规则
-对缺失的 ClawHub skill：
-1. **先经过 `skill-vetter` 审查**
-2. 审查通过后，才允许安装
-3. 安装命令：
-   ```bash
-   npx clawhub install <skill-name>
-   ```
-4. 如 `clawhub` / `npx` 不可用，停止并汇报，不要自行改用其他来源
+对缺失的 ClawHub skill，直接执行：
+```bash
+npx clawhub install <skill-name>
+```
+
+如 `clawhub` / `npx` 不可用，停止并汇报，不要自行改用其他来源
 
 ### 自研 Skills（随 workspace 记忆自动恢复，无需单独安装）
 Step 2 拉取记忆 repo 后，以下 skills 会自动出现在 `~/.openclaw/workspace/skills/` 中，无需额外操作：
